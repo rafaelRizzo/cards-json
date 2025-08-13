@@ -7,9 +7,13 @@ export const useCardsStore = create(
             cards: [],
             setCards: (cards) => set({ cards }),
             addCard: (card) => set((state) => ({ cards: [...state.cards, card] })),
+            removeCard: (id) =>
+                set((state) => ({
+                    cards: state.cards.filter((card) => card.id !== id),
+                })),
         }),
         {
-            name: "cards-storage", // nome da chave no localStorage
+            name: "cards-storage", // chave no localStorage
         }
     )
 );

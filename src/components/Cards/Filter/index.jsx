@@ -31,8 +31,6 @@ export default function FilterCards({ searchTerm, setSearchTerm }) {
         setTheme(theme === "light" ? "dark" : "light");
     };
 
-    if (!mounted) return null; // evita bug de hidratação
-
     return (
         <nav className="border-b dark:bg-zinc-900 p-2">
             <ul className="flex w-full">

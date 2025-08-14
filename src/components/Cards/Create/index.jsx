@@ -56,9 +56,11 @@ export default function CreateCard({ addCard }) {
         toast.dismiss();
         const newCard = { id: Date.now(), ...data };
         const toast_loading = toast.loading("Criando card...");
+        setTimeout(() => {
+            toast.dismiss(toast_loading);
+            toast.success("Card criado com sucesso!");
+        }, 100)
         addCard(newCard);
-        toast.dismiss(toast_loading);
-        toast.success("Card criado com sucesso!");
         reset();
     };
 

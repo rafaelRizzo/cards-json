@@ -23,8 +23,8 @@ export default function Delete({ onDelete, card }) {
         <div onClick={(e) => e.stopPropagation()}>
             <AlertDialog>
                 <AlertDialogTrigger asChild>
-                    <Button variant="ghost">
-                        <TrashIcon className="w-4 h-4 text-red-800" />
+                    <Button variant="destructive">
+                        <TrashIcon size={14} />
                     </Button>
                 </AlertDialogTrigger>
                 <AlertDialogContent onClick={(e) => e.stopPropagation()}>

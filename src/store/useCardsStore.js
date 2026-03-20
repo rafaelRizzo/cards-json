@@ -11,6 +11,12 @@ export const useCardsStore = create(
                 set((state) => ({
                     cards: state.cards.filter((card) => card.id !== id),
                 })),
+            updateCard: (updatedCard) =>
+                set((state) => ({
+                    cards: state.cards.map((card) =>
+                        card.id === updatedCard.id ? updatedCard : card
+                    ),
+                })),
         }),
         {
             name: "cards-storage", // chave no localStorage

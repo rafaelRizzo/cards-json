@@ -1,5 +1,5 @@
 // Cabeçalho do dashboard: marca, alternar tema e menu da conta (importar, exportar, sair).
-import { useNavigate } from "@tanstack/react-router"
+import { Link, useNavigate } from "@tanstack/react-router"
 import { DownloadIcon, HistoryIcon, Link2Icon, LogOutIcon, UploadIcon } from "lucide-react"
 import { motion } from "motion/react"
 import { useRef } from "react"
@@ -87,7 +87,9 @@ export function AppHeader() {
             className="border-b bg-card/60 backdrop-blur"
         >
             <div className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between px-4">
-                <Brand size="sm" />
+                <Link to="/" className="rounded-lg outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
+                    <Brand size="sm" />
+                </Link>
 
                 <div className="flex items-center gap-1">
                     <ThemeToggle />

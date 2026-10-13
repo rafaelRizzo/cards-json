@@ -25,7 +25,7 @@ function RootLayout() {
                 <MotionConfig reducedMotion="user">
                     <TooltipProvider delay={250}>
                         <Outlet />
-                        <Toaster position="top-center" offset={{ top: 64 }} richColors />
+                        <Toaster position="top-center" richColors />
                     </TooltipProvider>
                 </MotionConfig>
             </ThemeProvider>

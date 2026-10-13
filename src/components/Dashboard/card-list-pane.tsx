@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "motion/react"
 import type { RefObject } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { ScrollArea } from "@/components/ui/scroll-area"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import type { Card, CardView } from "@/hooks/use-cards"
@@ -144,9 +145,9 @@ export function CardListPane({
                 </div>
             </div>
 
-            <div className="min-h-0 flex-1 overflow-y-auto overflow-x-hidden px-2 pb-3">
+            <ScrollArea className="min-h-0 flex-1" viewportClassName="px-2 pb-3">
                 {loading ? (
-                    <div className="grid gap-2 px-1">
+                    <div className="grid grid-cols-[minmax(0,1fr)] gap-2 px-1">
                         <Skeleton className="h-14 w-full" />
                         <Skeleton className="h-14 w-full" />
                         <Skeleton className="h-14 w-full" />
@@ -156,7 +157,7 @@ export function CardListPane({
                         variants={staggerContainer(0.045)}
                         initial="hidden"
                         animate="show"
-                        className="grid gap-0.5"
+                        className="grid grid-cols-[minmax(0,1fr)] gap-0.5"
                     >
                         <AnimatePresence initial={false} mode="popLayout">
                             {hasPinned && <GroupLabel key="label-pinned">Fixados</GroupLabel>}
@@ -177,7 +178,7 @@ export function CardListPane({
                     </motion.ul>
                 )}
                 {!loading && <LoadMore hasMore={hasNextPage} loading={loadingMore} onLoadMore={onLoadMore} />}
-            </div>
+            </ScrollArea>
         </section>
     )
 }
